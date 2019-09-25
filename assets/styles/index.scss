@@ -1,1 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
+
+$black: #000;
+$green: #080;
+$red: #f00;
+
+.border {
+  border: 3px solid $black;
+  margin: 20px;
+  padding: 20px;
+}
+
+.success {
+  color: $green;
+}
+
+.failure {
+  color: $red;
+}

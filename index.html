@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>API Token Authorization</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,29 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic-Tac-Toe</h1>
+      <br>
+      <h2 id="message"></h2>
+      <h2>Sign Up</h2>
+      <form id="sign-up">
+      <input type="email" name="credentials[email]" placeholder="Email address">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+      <button>Sign Up</button>
+      </form>
+      <br>
+      <h2>Sign In</h2>
+      <form id="sign-in">
+      <input type="email" name="credentials[email]" placeholder="Email address">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <button>Sign In</button>
+      </form>
+      <br>
+      <h2>Change Password</h2>
+      <form id="change-password">
+      <input type="password" name="passwords[old]" placeholder="Enter old password">
+      <input type="password" name="passwords[new]" placeholder="Enter new password">
+      <button>Change Password</button>
+      </form>
     </body>
 </html>
