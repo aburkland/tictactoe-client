@@ -23,7 +23,7 @@ const onSignUpFailure = function () {
 
 const onSignInSuccess = function (responseData) {
   successMessage('Signed in successfully!')
-  store.user = responseData.user
+  store.user = responseData.user // the user object containing the user token
 }
 
 const onSignInFailure = function () {
@@ -38,11 +38,21 @@ const onChangePasswordFailure = function () {
   failureMessage('Change password failed')
 }
 
+const onSignOutSuccess = function () {
+  successMessage('Signed out successfully!')
+}
+
+const onSignOutFailure = function () {
+  failureMessage('Sign-out failed')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }
