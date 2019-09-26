@@ -10,6 +10,14 @@ $red: #f00;
   padding: 20px;
 }
 
+.box {
+  align-items: center;
+  border: 1px solid $black;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
 .success {
   color: $green;
 }
