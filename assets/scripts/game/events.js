@@ -15,14 +15,18 @@ const onCreateGame = function (event) {
     .catch(ui.onCreateGameFailure)
 }
 
-//   const gameBoard = [
-//     '', '', '',
-//     '', '', '',
-//     '', '', ''
-// ]
+const cells = ['', '', '','', '', '', '', '', '']
 
-// create function to track move
+// create function to track click
+const onClickBoard = function (event) {
+  event.preventDefault()
+  console.log('you clicked me')
+  // do not allow users to add an X or O to an invalid space
+  //
+}
+
 
 module.exports = {
-  onCreateGame
+  onCreateGame,
+  onClickBoard
 }
