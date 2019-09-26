@@ -19,6 +19,7 @@ const failureMessage = function (newText) {
 const onCreateGameSuccess = function (responseData) {
   successMessage('New game created successfully!')
   store.game = responseData.game
+  console.log(store.game)
 }
 
 const onCreateGameFailure = function () {

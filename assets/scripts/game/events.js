@@ -6,25 +6,37 @@ const ui = require('./ui.js')
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  const form = event.target
-
-  const formData = getFormFields(form)
-
-  api.createGame(formData)
+  $('.box').text('')
+  api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
 }
 
 const cells = ['', '', '','', '', '', '', '', '']
+let currentPlayer = 'X'
+const changePlayer = function () {
+  if (currentPlayer === 'X') {
+    currentPlayer = 'O'
+  } else {
+    currentPlayer = 'X'
+  }
+}
 
 // create function to track click
 const onClickBoard = function (event) {
   event.preventDefault()
-  console.log('you clicked me')
   // do not allow users to add an X or O to an invalid space
-  //
+  if ($(event.target).text() === '') {
+    $(event.target).text(currentPlayer)
+    // update/patch const updateGame = function () {}
+    api.updateGame()
+      .then(console.log('updateGame function was called'))
+      .catch(console.log('something displaying from updateGame'))
+    changePlayer()
+  } else {
+    console.log('this box is occupied already')
+  }
 }
-
 
 module.exports = {
   onCreateGame,
