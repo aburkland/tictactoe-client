@@ -29,9 +29,9 @@ const onClickBoard = function (event) {
   if ($(event.target).text() === '') {
     $(event.target).text(currentPlayer)
     // update/patch const updateGame = function () {}
-    api.updateGame()
-      .then(console.log('updateGame function was called'))
-      .catch(console.log('something displaying from updateGame'))
+    api.updateGame(event.target.id, currentPlayer)
+      .then(console.log)
+      .catch(console.log)
     changePlayer()
   } else {
     console.log('this box is occupied already')
