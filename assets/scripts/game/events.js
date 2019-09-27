@@ -13,14 +13,6 @@ const onCreateGame = function (event) {
     .catch(ui.onCreateGameFailure)
 }
 
-// const onUpdateGame = function (event) {
-//   event.preventDefault()
-//   store.id = $(event.target).attr('data-index-number')
-//   api.updateGame()
-//     .then(ui.onUpdateGameSuccess)
-//     .catch(ui.onUpdateGameFailure)
-// }
-
 // let gameBoardArray = ['', '', '', '', '', '', '', '', '']
 
 // win conditions
@@ -43,31 +35,75 @@ const changePlayer = function () {
     currentPlayer = 'X'
   }
 }
-//
-// const checkWin = function () {
-//   console.log('basic functionality works')
-//   const space0 = $('#0').text()
-//   const space1 = $('#1').text()
-//   const space2 = $('#2').text()
-//   const space3 = $('#3').text()
-//   const space4 = $('#4').text()
-//   const space5 = $('#5').text()
-//   const space6 = $('#6').text()
-//   const space7 = $('#7').text()
-//   const space8 = $('#8').text()
-//
-//   if (space0 === space1 && space0 === space2) {
-//     if (space0 === 'X') {
-//       console.log('X wins')
-//     } else {
-//       console.log('O wins')
-//     }
-//   }
-// edit here
-// if (number of moves >= 3) {
-// check to see if cells array matches one of the win combos
-// }
-// }
+
+const checkWin = function () {
+  const space0 = $('#0').text()
+  const space1 = $('#1').text()
+  const space2 = $('#2').text()
+  const space3 = $('#3').text()
+  const space4 = $('#4').text()
+  const space5 = $('#5').text()
+  const space6 = $('#6').text()
+  const space7 = $('#7').text()
+  const space8 = $('#8').text()
+
+  if (space0 === space1 && space0 === space2) {
+    if (space0 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space3 === space4 && space3 === space5) {
+    if (space3 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space6 === space7 && space6 === space8) {
+    if (space6 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space0 === space3 && space0 === space6) {
+    if (space0 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space1 === space4 && space1 === space7) {
+    if (space1 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space2 === space5 && space2 === space8) {
+    if (space2 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space0 === space4 && space0 === space8) {
+    if (space0 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+  if (space2 === space4 && space2 === space6) {
+    if (space2 === 'X') {
+      console.log('X wins')
+    } else {
+      console.log('O wins')
+    }
+  }
+}
 
 // create function to track click
 const onClickBoard = function (event) {
@@ -76,18 +112,17 @@ const onClickBoard = function (event) {
   if ($(event.target).text() === '') {
     $(event.target).text(currentPlayer)
 
-    // checkWin()
+    checkWin()
 
-    // const currentTurn = currentPlayer
+    const currentTurn = currentPlayer
 
     changePlayer()
 
-    api.updateGame(event.target.id, currentPlayer) // need to add game state param
+    api.updateGame(event.target.id, currentTurn) // need to add game state param
       .then(ui.onUpdateGameSuccess) // (() => {
     // checkWin() // need to understand
       // })
       .catch(console.log)
-    changePlayer()
   } else {
     console.log('this box is occupied already') // need to add ui function
   }

@@ -2,6 +2,7 @@
 
 $black: #000;
 $green: #080;
+$light-blue: #ade;
 $red: #f00;
 
 .border {
@@ -12,6 +13,7 @@ $red: #f00;
 
 .box {
   align-items: center;
+  background-color: $light-blue;
   border: 1px solid $black;
   display: flex;
   height: 80px;
