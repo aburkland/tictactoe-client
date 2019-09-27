@@ -26,7 +26,13 @@ const onCreateGameFailure = function () {
   failureMessage('New game creation failed')
 }
 
+// const onUpdateGameSuccess = function (responseData) {
+//   store.game = responseData.game
+// }
+// onUpdateGameFailure
+
 module.exports = {
   onCreateGameSuccess,
-  onCreateGameFailure
+  onCreateGameFailure,
+  onUpdateGameSuccess
 }

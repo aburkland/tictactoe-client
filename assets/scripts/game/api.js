@@ -26,13 +26,16 @@ const updateGame = function (index, value) {
           'index': index,
           'value': value
         },
-        'over': false
+        'over': false // need to figure out variable for this
       }
     }
   })
 }
 
+// const checkWin = function () {}
+
 module.exports = {
   createGame,
-  updateGame
+  updateGame // ,
+  // checkWin
 }
