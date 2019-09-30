@@ -5,12 +5,6 @@ $green: #080;
 $light-blue: #ade;
 $red: #f00;
 
-.border {
-  border: 3px solid $black;
-  margin: 20px;
-  padding: 20px;
-}
-
 .box {
   align-items: center;
   background-color: $light-blue;
@@ -25,9 +19,7 @@ $red: #f00;
 }
 
 .no-display {
-  align-items: center;
   display: none;
-  justify-content: center;
 }
 
 .success {

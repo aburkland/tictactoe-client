@@ -5,15 +5,6 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store')
 
-const onCreateGame = function (event) {
-  event.preventDefault()
-  $('.box').text('')
-  currentPlayer = 'X'
-  api.createGame()
-    .then(ui.onCreateGameSuccess)
-    .catch(ui.onCreateGameFailure)
-}
-
 let currentPlayer = 'X'
 
 const changePlayer = function () {
@@ -22,6 +13,16 @@ const changePlayer = function () {
   } else {
     currentPlayer = 'X'
   }
+}
+// onCreateGame removes all X and O from gameboard, starts a new game with
+// X as the first player to go
+const onCreateGame = function (event) {
+  event.preventDefault()
+  $('.box').text('')
+  currentPlayer = 'X'
+  api.createGame()
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onCreateGameFailure)
 }
 
 // checkWin returns 'X' for X wins or 'O' for O wins or '' for no win yet
@@ -97,7 +98,8 @@ const checkWin = function () {
   return ''
 }
 
-// checkTie returns false if there is not a tie, returns true if there is a tie
+// checkTie returns false if there is not a tie, returns true if there
+// are no empty strings
 const checkTie = function () {
   const space0 = $('#0').text()
   const space1 = $('#1').text()
@@ -110,7 +112,7 @@ const checkTie = function () {
   const space8 = $('#8').text()
 
   // check to see if board spaces have empty string and return
-  // false if there is no empty string
+  // false if there is an empty string
   if (
     space0 === '' ||
     space1 === '' ||

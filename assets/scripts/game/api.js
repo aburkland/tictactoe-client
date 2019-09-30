@@ -42,8 +42,6 @@ const getGamesPlayed = function () {
   })
 }
 
-// const checkWin = function () {}
-
 module.exports = {
   createGame,
   updateGame,

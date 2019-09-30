@@ -28,12 +28,11 @@ const onCreateGameFailure = function () {
 
 const onUpdateGameSuccess = function (responseData) {
   store.game = responseData.game
-  // $('#update-message').text('Game was updated successfully!')
+  // do not send success message as it will confuse the user
 }
 
 const onUpdateGameFailure = function () {
-  $('#update-message').text('Game was not updated in API')
-  // need to fix so nothing is console'd
+  $('#update-message').text('Error: game was not updated in API')
 }
 
 const onBoxOccupied = function () {
@@ -43,7 +42,7 @@ const onBoxOccupied = function () {
 const onCurrentPlayerTurn = function (currentPlayer) {
   $('#game-message').removeClass('failure')
   $('#game-message').removeClass('success')
-  $('#game-message').text(currentPlayer + "'s turn!")
+  $('#game-message').text('It is ' + currentPlayer + "'s turn to choose a space!")
 }
 
 const onGameIsOver = function (currentPlayer) {

@@ -71,7 +71,7 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutFailure = function () {
-  failureMessage('Sign-out failed')
+  failureMessage('Sign-out failed. Please try again.')
 }
 
 module.exports = {
