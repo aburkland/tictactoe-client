@@ -24,21 +24,24 @@ const changePlayer = function () {
   }
 }
 
-const space0 = $('#0').text()
-const space1 = $('#1').text()
-const space2 = $('#2').text()
-const space3 = $('#3').text()
-const space4 = $('#4').text()
-const space5 = $('#5').text()
-const space6 = $('#6').text()
-const space7 = $('#7').text()
-const space8 = $('#8').text()
-
+// checkWin returns 'X' for X wins or 'O' for O wins or '' for no win yet
 const checkWin = function () {
+  const space0 = $('#0').text()
+  const space1 = $('#1').text()
+  const space2 = $('#2').text()
+  const space3 = $('#3').text()
+  const space4 = $('#4').text()
+  const space5 = $('#5').text()
+  const space6 = $('#6').text()
+  const space7 = $('#7').text()
+  const space8 = $('#8').text()
+
   if (space0 === space1 && space0 === space2) {
     if (space0 === 'X') {
+      // $('#game-message').text('X wins')
       return 'X'
     } else if (space0 === 'O') {
+      // $('#game-message').text('O wins')
       return 'O'
     }
   }
@@ -94,7 +97,18 @@ const checkWin = function () {
   return ''
 }
 
+// checkTie returns false if there is not a tie, returns true if there is a tie
 const checkTie = function () {
+  const space0 = $('#0').text()
+  const space1 = $('#1').text()
+  const space2 = $('#2').text()
+  const space3 = $('#3').text()
+  const space4 = $('#4').text()
+  const space5 = $('#5').text()
+  const space6 = $('#6').text()
+  const space7 = $('#7').text()
+  const space8 = $('#8').text()
+
   // check to see if board spaces have empty string and return
   // false if there is no empty string
   if (
@@ -114,7 +128,7 @@ const checkTie = function () {
   return true
 }
 
-// create function to track click
+// onClickBoard checks to see if a game is stored and if the game is active
 const onClickBoard = function (event) {
   event.preventDefault()
   if (store.game && store.game.over === false) {
@@ -122,35 +136,59 @@ const onClickBoard = function (event) {
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer)
 
+      // winner is storing 'X' or 'O' or ''
       const winner = checkWin()
+
+      // gameOver is assigned true or false
       let gameOver = winner !== ''
       if (winner === '') {
         if (checkTie()) {
           // handle tie here; ui message;
           gameOver = true
+          $('#game-message').text('It is a tie game.')
+        } else if (!checkTie()) {
+          gameOver = false
+          // console.log('game is not over')
+          //  $('#game-message').text(currentPlayer + "'s turn")
         }
       }
       if (gameOver) {
         // if it's a tie, send tie message; if not a tie, send win message
-        console.log(winner + ' wins!') /// convert to message on UI
+        if (checkTie()) {
+          $('#game-message').text('It is a tie game.')
+        } else {
+          // $('#game-message').text(winner + ' wins')
+          ui.onGameIsOver(currentPlayer)
+        }
       }
 
       const currentTurn = currentPlayer
 
       changePlayer()
+      if (gameOver === false) {
+        ui.onCurrentPlayerTurn(currentPlayer)
+      }
 
       api.updateGame(event.target.id, currentTurn, gameOver)
         .then(ui.onUpdateGameSuccess) // (() => {
       // checkWin() // need to understand
         // })
-        .catch(console.log)
+        .catch(ui.onUpdateGameFailure)
     } else {
-      console.log('this box is occupied already') // need to add ui function
+      ui.onBoxOccupied() // need to remove message once good move is made
     }
   }
 }
 
+const onGamesPlayed = function () {
+  event.preventDefault()
+  api.getGamesPlayed()
+    .then(ui.onGetGamesSuccess)
+    .catch(ui.onGetGamesFailure)
+}
+
 module.exports = {
   onCreateGame,
-  onClickBoard
+  onClickBoard,
+  onGamesPlayed
 }

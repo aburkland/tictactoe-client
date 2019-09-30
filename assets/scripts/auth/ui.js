@@ -19,6 +19,7 @@ const onSignUpSuccess = function () {
   // $('#sign-up-header').hide()
   // $('#after-sign-up').hide()
   $('#sign-up').trigger('reset')
+  $('.no-display').hide()
 }
 
 const onSignUpFailure = function () {
@@ -29,7 +30,7 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (responseData) {
   successMessage('Signed in successfully!')
   store.user = responseData.user // the user object containing the user token
-  //  $("p").hide();
+  //  example $("p").hide();
   $('#sign-in').hide()
   $('#sign-in-header').hide()
   $('#after-sign-in').hide()
@@ -37,12 +38,7 @@ const onSignInSuccess = function (responseData) {
   $('#sign-up-header').hide()
   $('#after-sign-up').hide()
   $('#sign-in').trigger('reset')
-  $('#sign-out').show()
-  $('#sign-out-header').show()
-  $('#after-sign-out').show()
-  $('#change-password').show()
-  $('#change-password-header').show()
-  $('#after-change-password').show()
+  $('.no-display').show()
 }
 
 const onSignInFailure = function () {
@@ -63,12 +59,7 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function () {
   successMessage('Signed out successfully!')
   $('.box').text('')
-  $('#sign-out').hide()
-  $('#sign-out-header').hide()
-  $('#after-sign-out').hide()
-  $('#change-password').hide()
-  $('#change-password-header').hide()
-  $('#after-change-password').hide()
+  $('.no-display').hide()
   $('#sign-in').show()
   $('#sign-in-header').show()
   $('#after-sign-in').show()

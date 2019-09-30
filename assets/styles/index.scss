@@ -20,10 +20,16 @@ $red: #f00;
   justify-content: center;
 }
 
-.success {
-  color: $green;
-}
-
 .failure {
   color: $red;
+}
+
+.no-display {
+  align-items: center;
+  display: none;
+  justify-content: center;
+}
+
+.success {
+  color: $green;
 }

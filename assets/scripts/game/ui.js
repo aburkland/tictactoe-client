@@ -3,21 +3,21 @@ const store = require('../store')
 
 const successMessage = function (newText) {
   // a helper reusable function to display text
-  $('#message').text(newText)
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
+  $('#game-message').text(newText)
+  $('#game-message').removeClass('failure')
+  $('#game-message').addClass('success')
   // reset form below so info clears from form
   $('form').trigger('reset')
 }
 
 const failureMessage = function (newText) {
-  $('#message').text(newText)
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
+  $('#game-message').text(newText)
+  $('#game-message').removeClass('success')
+  $('#game-message').addClass('failure')
 }
 
 const onCreateGameSuccess = function (responseData) {
-  successMessage('New game created successfully!')
+  successMessage('New game created successfully! X goes first!')
   store.game = responseData.game
   console.log(store.game)
 }
@@ -28,13 +28,44 @@ const onCreateGameFailure = function () {
 
 const onUpdateGameSuccess = function (responseData) {
   store.game = responseData.game
-  console.log(store.game)
-  console.log('here')
+  // $('#update-message').text('Game was updated successfully!')
 }
-// onUpdateGameFailure
+
+const onUpdateGameFailure = function () {
+  $('#update-message').text('Game was not updated in API')
+  // need to fix so nothing is console'd
+}
+
+const onBoxOccupied = function () {
+  failureMessage('This space is already taken. Choose an empty space!')
+}
+
+const onCurrentPlayerTurn = function (currentPlayer) {
+  $('#game-message').removeClass('failure')
+  $('#game-message').removeClass('success')
+  $('#game-message').text(currentPlayer + "'s turn!")
+}
+
+const onGameIsOver = function (currentPlayer) {
+  successMessage(currentPlayer + ' wins!')
+}
+
+const onGetGamesSuccess = function (response) {
+  $('#get-games-played').text(response.games.length)
+}
+
+const onGetGamesFailure = function () {
+  $('#get-games-played').text('Game history retrieval failed')
+}
 
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
-  onUpdateGameSuccess
+  onUpdateGameSuccess,
+  onUpdateGameFailure,
+  onBoxOccupied,
+  onGetGamesSuccess,
+  onGetGamesFailure,
+  onGameIsOver,
+  onCurrentPlayerTurn
 }

@@ -32,10 +32,20 @@ const updateGame = function (index, value, gameOver) {
   })
 }
 
+const getGamesPlayed = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // const checkWin = function () {}
 
 module.exports = {
   createGame,
-  updateGame // ,
-  // checkWin
+  updateGame,
+  getGamesPlayed
 }
