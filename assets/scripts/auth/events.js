@@ -4,6 +4,8 @@ const api = require('./api.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
+  $('.box').text('')
+  $('.blur').blur()
   const form = event.target
 
   const formData = getFormFields(form)
@@ -15,6 +17,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
+  $('.box').text('')
   const form = event.target
 
   const formData = getFormFields(form)
@@ -26,6 +29,8 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
+  $('.box').text('')
+  $('.blur').blur()
   const form = event.target
 
   const formData = getFormFields(form)
@@ -37,6 +42,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   console.log('onsignout happens')
+  $('.box').text('')
   event.preventDefault()
   api.signOut()
     .then(ui.onSignOutSuccess)

@@ -14,7 +14,7 @@ const failureMessage = function (newText) {
 }
 
 const onSignUpSuccess = function () {
-  successMessage('You are successfully signed up!')
+  successMessage('Your sign-up was successful. Sign in to play!')
   // $('#sign-up').hide()
   // $('#sign-up-header').hide()
   // $('#after-sign-up').hide()
@@ -23,12 +23,12 @@ const onSignUpSuccess = function () {
 }
 
 const onSignUpFailure = function () {
-  failureMessage('Your sign-up was unsuccessful.')
+  failureMessage('Your sign-up was unsuccessful. Please try again.')
   $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (responseData) {
-  successMessage('Signed in successfully!')
+  successMessage('You are signed in!')
   store.user = responseData.user // the user object containing the user token
   //  example $("p").hide();
   $('#sign-in').hide()
@@ -42,13 +42,14 @@ const onSignInSuccess = function (responseData) {
 }
 
 const onSignInFailure = function () {
-  failureMessage('Sign in failed')
+  failureMessage('Sign in failed. Please try again.')
   $('#sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccess = function () {
   successMessage('Changed password successfully!')
   $('#change-password').trigger('reset')
+  $('#game-message').text('')
 }
 
 const onChangePasswordFailure = function () {
@@ -57,8 +58,9 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  successMessage('Signed out successfully!')
+  successMessage('You successfully signed out. Sign in to play again!')
   $('.box').text('')
+  $('#game-message').text('')
   $('.no-display').hide()
   $('#sign-in').show()
   $('#sign-in-header').show()

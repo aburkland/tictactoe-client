@@ -177,6 +177,8 @@ const onClickBoard = function (event) {
     } else {
       ui.onBoxOccupied() // need to remove message once good move is made
     }
+  } else if (!store.game) {
+    $('#game-message').text("You must click the 'New Game' button to play.")
   }
 }
 

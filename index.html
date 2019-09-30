@@ -13,14 +13,13 @@
     </head>
     <body>
       <h1>Tic-Tac-Toe</h1>
-      <br>
       <h2 id="message"></h2>
       <h2 id='sign-up-header'>Sign Up</h2>
       <form id="sign-up">
       <input type="email" name="credentials[email]" placeholder="Email address">
       <input type="password" name="credentials[password]" placeholder="Password">
-      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-      <button>Sign Up</button>
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password" class="blur">
+      <button class="blur">Sign Up</button>
       </form>
       <br id='after-sign-up'>
       <h2 id='sign-in-header'>Sign In</h2>
@@ -33,18 +32,17 @@
       <h2 id="change-password-header" class="no-display">Change Password</h2>
       <form id="change-password" class="no-display">
       <input type="password" name="passwords[old]" placeholder="Enter old password">
-      <input type="password" name="passwords[new]" placeholder="Enter new password">
-      <button class="no-display">Change Password</button>
+      <input type="password" name="passwords[new]" placeholder="Enter new password" class="blur">
+      <button class="no-display blur">Change Password</button>
       </form>
-      <br id="after-change-password" class="no-display">
+      <!--<br id="after-change-password" class="no-display">-->
       <h2 id="sign-out-header" class="no-display">Sign-Out</h2>
       <button id="sign-out" class="no-display">Sign-Out</button>
       <br id="after-sign-out" class="no-display">
       <h2 class="no-display">Press New Game Button to play</h2>
       <button id="create-game" class="no-display">New Game</button>
-      <br class="no-display">
-      <div id="game-message" class="no-display"></div>
-      <div id="update-message" class="no-display"></div>
+      <h2 id="game-message" class="no-display"></h2>
+      <!--<div id="update-message" class="no-display"></div>-->
       <div class="row mt-5">
         <div id ="0" class="col-sm-4 box alt-color no-display"></div>
         <div id ="1" class="col-sm-4 box alt-color no-display"></div>

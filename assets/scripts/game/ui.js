@@ -47,11 +47,11 @@ const onCurrentPlayerTurn = function (currentPlayer) {
 }
 
 const onGameIsOver = function (currentPlayer) {
-  successMessage(currentPlayer + ' wins!')
+  successMessage(currentPlayer + " wins! Press 'New Game' button to play again!")
 }
 
 const onGetGamesSuccess = function (response) {
-  $('#get-games-played').text(response.games.length)
+  $('#get-games-played').text('Games Played: ' + response.games.length)
 }
 
 const onGetGamesFailure = function () {
