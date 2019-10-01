@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>API Token Authorization</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic-Tac-Toe</h1>
+      <h2 id="message"></h2>
+      <h2 id='sign-up-header'>Sign Up</h2>
+      <form id="sign-up">
+      <input type="email" name="credentials[email]" placeholder="Email address">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password" class="blur">
+      <button class="blur">Sign Up</button>
+      </form>
+      <br id='after-sign-up'>
+      <h2 id='sign-in-header'>Sign In</h2>
+      <form id="sign-in">
+      <input type="email" name="credentials[email]" placeholder="Email address">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <button>Sign In</button>
+      </form>
+      <br id='after-sign-in'>
+      <h2 id="change-password-header" class="no-display">Change Password</h2>
+      <form id="change-password" class="no-display">
+      <input type="password" name="passwords[old]" placeholder="Enter old password">
+      <input type="password" name="passwords[new]" placeholder="Enter new password" class="blur">
+      <button class="no-display blur">Change Password</button>
+      </form>
+      <!-- line break not needed <br id="after-change-password" class="no-display">-->
+      <h2 id="sign-out-header" class="no-display">Sign-Out</h2>
+      <button id="sign-out" class="no-display">Sign-Out</button>
+      <br id="after-sign-out" class="no-display">
+      <h2 class="no-display">Press New Game Button to play</h2>
+      <button id="create-game" class="no-display">New Game</button>
+      <h2 id="game-message" class="no-display"></h2>
+      <!--<div id="update-message" class="no-display"></div>-->
+      <div class="row mt-5 game-board-container">
+        <div id ="0" class="col-4 box no-display"></div>
+        <div id ="1" class="col-4 box no-display"></div>
+        <div id ="2" class="col-4 box no-display"></div>
+        <div id ="3" class="col-4 box no-display"></div>
+        <div id ="4" class="col-4 box no-display"></div>
+        <div id ="5" class="col-4 box no-display"></div>
+        <div id ="6" class="col-4 box no-display"></div>
+        <div id ="7" class="col-4 box no-display"></div>
+        <div id ="8" class="col-4 box no-display"></div>
+      </div>
+      <h2 class="no-display">Number of Games Played</h2>
+      <button id="games-played-button" class="no-display">Games Played</button>
+      <div id="get-games-played" class="no-display"></div>
+    </body>
+</html>
