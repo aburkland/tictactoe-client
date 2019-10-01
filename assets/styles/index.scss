@@ -18,6 +18,13 @@ $red: #f00;
   color: $red;
 }
 
+.game-board-container {
+  max-width: 1700px;
+  min-width: 300px;
+  width: 50%;
+
+}
+
 .no-display {
   display: none;
 }

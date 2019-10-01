@@ -31,7 +31,7 @@ const onUpdateGameSuccess = function (responseData) {
 }
 
 const onUpdateGameFailure = function () {
-  $('#update-message').text('Error: game was not updated in API')
+  failureMessage('Error: game was not updated in API')
 }
 
 const onBoxOccupied = function () {
@@ -45,7 +45,21 @@ const onCurrentPlayerTurn = function (currentPlayer) {
 }
 
 const onGameIsOver = function (currentPlayer) {
+  $('#game-message').removeClass('failure')
+  $('#game-message').removeClass('success')
   successMessage(currentPlayer + " wins! Press 'New Game' button to play again!")
+}
+
+const onGetTieMessage = function () {
+  $('#game-message').removeClass('failure')
+  $('#game-message').removeClass('success')
+  $('#game-message').text('It is a tie game.')
+}
+
+const onMustStartGameMessage = function () {
+  $('#game-message').removeClass('failure')
+  $('#game-message').removeClass('success')
+  $('#game-message').text("You must click the 'New Game' button to play.")
 }
 
 const onGetGamesSuccess = function (response) {
@@ -65,5 +79,7 @@ module.exports = {
   onGetGamesSuccess,
   onGetGamesFailure,
   onGameIsOver,
+  onGetTieMessage,
+  onMustStartGameMessage,
   onCurrentPlayerTurn
 }

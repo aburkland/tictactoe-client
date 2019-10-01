@@ -153,7 +153,8 @@ const onClickBoard = function (event) {
         // then if checkTie is true, the game board is full and we set gameOver to true
         // show tie message on screen
         gameOver = true
-        $('#game-message').text('It is a tie game.')
+        // $('#game-message').text('It is a tie game.')
+        ui.onGetTieMessage()
       } else {
         // if gameOver is not true and there are spaces to click on board then
         // we should alternate players and show the next player's turn to go
@@ -170,7 +171,8 @@ const onClickBoard = function (event) {
       ui.onBoxOccupied()
     }
   } else {
-    $('#game-message').text("You must click the 'New Game' button to play.")
+    // $('#game-message').text("You must click the 'New Game' button to play.")
+    ui.onMustStartGameMessage()
   }
 }
 
