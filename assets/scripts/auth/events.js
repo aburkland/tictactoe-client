@@ -41,7 +41,6 @@ const onChangePassword = function (event) {
 }
 
 const onSignOut = function (event) {
-  console.log('onsignout happens')
   $('.box').text('')
   event.preventDefault()
   api.signOut()
