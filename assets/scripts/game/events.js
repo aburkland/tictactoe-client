@@ -134,15 +134,17 @@ const checkTie = function () {
 const onClickBoard = function (event) {
   event.preventDefault()
   if (store.game && store.game.over === false) {
-    // do not allow users to add an X or O to an invalid space
+    // if space is blank, then add the X or O
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer)
-
+      // save value to currentTurn to send to API
       const currentTurn = currentPlayer
-      // winner is storing 'X' or 'O' or ''
+      // winner is storing 'X' or 'O' for winner or ''
       const winner = checkWin()
 
       // gameOver is assigned true or false
+      // if gameOver is true, that means X or O has won the game
+      // if gameOver is false, there could be a tie or more moves to be played
       let gameOver = winner !== ''
       if (gameOver) {
         // shows winning message on screen
