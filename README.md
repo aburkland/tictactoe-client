@@ -20,6 +20,7 @@ occuring.
 - JQuery
 - HTML5
 - CSS
+- Bootstrap
 
 ## Unsolved Problems for Future Fixes
 I created an error message to appear when there were complications with
