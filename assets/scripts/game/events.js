@@ -138,48 +138,38 @@ const onClickBoard = function (event) {
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer)
 
+      const currentTurn = currentPlayer
       // winner is storing 'X' or 'O' or ''
       const winner = checkWin()
 
       // gameOver is assigned true or false
       let gameOver = winner !== ''
-      if (winner === '') {
-        if (checkTie()) {
-          // handle tie here; ui message;
-          gameOver = true
-          $('#game-message').text('It is a tie game.')
-        } else if (!checkTie()) {
-          gameOver = false
-          // console.log('game is not over')
-          //  $('#game-message').text(currentPlayer + "'s turn")
-        }
-      }
       if (gameOver) {
-        // if it's a tie, send tie message; if not a tie, send win message
-        if (checkTie()) {
-          $('#game-message').text('It is a tie game.')
-        } else {
-          // $('#game-message').text(winner + ' wins')
-          ui.onGameIsOver(currentPlayer)
-        }
-      }
-
-      const currentTurn = currentPlayer
-
-      changePlayer()
-      if (gameOver === false) {
+        // shows winning message on screen
+        // if gameOver is true, there is a winner
+        ui.onGameIsOver(currentPlayer)
+      } else if (checkTie()) {
+        // if gameOver is not true, that means we don't have a winner
+        // then if checkTie is true, the game board is full and we set gameOver to true
+        // show tie message on screen
+        gameOver = true
+        $('#game-message').text('It is a tie game.')
+      } else {
+        // if gameOver is not true and there are spaces to click on board then
+        // we should alternate players and show the next player's turn to go
+        changePlayer()
         ui.onCurrentPlayerTurn(currentPlayer)
       }
 
+      // sending move index, player X or O, gameOver status to API
       api.updateGame(event.target.id, currentTurn, gameOver)
-        .then(ui.onUpdateGameSuccess) // (() => {
-      // checkWin() // need to understand
-        // })
+        .then(ui.onUpdateGameSuccess)
         .catch(ui.onUpdateGameFailure)
     } else {
-      ui.onBoxOccupied() // need to remove message once good move is made
+      // show box is occupied message and tell user to choose a different space
+      ui.onBoxOccupied()
     }
-  } else if (!store.game) {
+  } else {
     $('#game-message').text("You must click the 'New Game' button to play.")
   }
 }

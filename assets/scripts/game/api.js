@@ -2,6 +2,7 @@
 const config = require('../config.js')
 const store = require('../store')
 
+// create a new game
 const createGame = function () {
   return $.ajax({
     method: 'POST',
