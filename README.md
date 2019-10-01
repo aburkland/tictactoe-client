@@ -32,7 +32,7 @@ focus on styling; I would like to add a Bootstrap template and add more
 formatting.
 
 ## Wireframes
-![tic-tac-toe wireframes](https://drive.google.com/file/d/10axX1ocIzfhl0CS7HNh3XA_RG5PLrkh-/view?usp=sharing "Tic-tac-toe wireframes")
+![tic-tac-toe wireframes](https://live.staticflickr.com/65535/48823772213_668a2daf21.jpg "Tic-tac-toe wireframes")
 
 ## User Stories
 - As a user, I want to create a user account so that I can access the tic tac toe game.
