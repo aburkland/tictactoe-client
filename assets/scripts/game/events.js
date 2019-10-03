@@ -18,7 +18,7 @@ const changePlayer = function () {
 // X as the first player to go
 const onCreateGame = function (event) {
   event.preventDefault()
-  $('.box').text('')
+  $('.box').text('') // is this really clearing game?
   currentPlayer = 'X'
   api.createGame()
     .then(ui.onCreateGameSuccess)
@@ -134,6 +134,8 @@ const checkTie = function () {
 const onClickBoard = function (event) {
   event.preventDefault()
   if (store.game && store.game.over === false) {
+    // store.game.cells === ['', '', '', '', '', '', '', '', '']
+    // && store.game.cells is all empty strings
     // if space is blank, then add the X or O
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer)

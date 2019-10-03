@@ -1,6 +1,10 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui.js')
 const api = require('./api.js')
+// const gameEvents = require('../game/events.js')
+// const store = require('../store')
+// const gameUi = require('../game/ui.js')
+// const gameApi = require('../game/ui.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -29,8 +33,8 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  $('.box').text('')
   $('.blur').blur()
+
   const form = event.target
 
   const formData = getFormFields(form)
@@ -41,7 +45,7 @@ const onChangePassword = function (event) {
 }
 
 const onSignOut = function (event) {
-  $('.box').text('')
+  $('.box').text('') // need to reset game vs just clear text
   event.preventDefault()
   api.signOut()
     .then(ui.onSignOutSuccess)

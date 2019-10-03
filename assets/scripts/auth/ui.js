@@ -49,7 +49,7 @@ const onSignInFailure = function () {
 const onChangePasswordSuccess = function () {
   successMessage('Changed password successfully!')
   $('#change-password').trigger('reset')
-  $('#game-message').text('')
+  // $('#game-message').text('')
 }
 
 const onChangePasswordFailure = function () {
