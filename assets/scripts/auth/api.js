@@ -2,6 +2,7 @@
 const config = require('../config.js')
 const store = require('../store')
 
+// AJAX call to signUp endpoint on server
 const signUp = function (formData) {
   return $.ajax({
     method: 'POST',
